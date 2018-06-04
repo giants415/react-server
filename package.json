@@ -1,0 +1,19 @@
+{
+  "name": "react-server",
+  "version": "1.0.0",
+  "description": "API for grider adv react course",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giants415/react-server.git"
+  },
+  "author": "andrew v",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/giants415/react-server/issues"
+  },
+  "homepage": "https://github.com/giants415/react-server#readme"
+}

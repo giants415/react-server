@@ -25,6 +25,15 @@ userSchema.pre('save', function(next) {
   });
 });
 
+// methods object can be appended to any schema which gives schema access to any helper methods that are created (eg. the comparePassword helper)
+userSchema.methods.comparePassword = function(candidatePassword, callback) {
+  bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+    if (err) { return callback(err); }
+
+    callback(null, isMatch);
+  })
+}
+
 // Create the model class
 const ModelClass = mongoose.model('user', userSchema);
 

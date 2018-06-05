@@ -7,6 +7,13 @@ const ExtractJwt = require('passport-jwt').ExtractJwt;
 // Set up options for JWT Strat
 const jwtOptions = {};
 
-// Create JWT strat
+// Create JWT strat (payload = id and timestamp)
+const jwtLogin = new JwtStrategy(jwtOptions, function(payload, done) {
+  // see if the user ID in the payload exists in our DB
+
+  // if user does exist, call done
+
+  // it is doesnt, call done w/o user object
+});
 
 // Tell passport to use this strat

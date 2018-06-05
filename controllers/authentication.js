@@ -3,7 +3,10 @@ const config = require('../config');
 const User = require('../models/user');
 
 function toeknForUser(user) {
-  return jwt.encode({  }, config.secret);
+  const timestamp = new Date().getTime();
+  // sub = subject which refers to specific user
+  // iat = issued at time 
+  return jwt.encode({ sub: user.id, iat: timestamp }, config.secret);
 }
 
 exports.signup = function(req, res, next) {

@@ -10,6 +10,13 @@ const localOptions = { usernameField: 'email' };
 const localLogin = new LocalStrategy(localOptions, function(email, password, done) {
   // verify this username and PW, call done w/ user if correct
   // otherwise call done w/ false
+  User.findOne({ email: email }, function(err, user) {
+    if (err) { return done(err); }
+    if (!user) { return done(false); }
+
+    //compare PWs (request = user.password?)
+    
+  });
 });
 
 // Set up options for JWT Strat

@@ -5,7 +5,7 @@ const User = require('../models/user');
 function toeknForUser(user) {
   const timestamp = new Date().getTime();
   // sub = subject which refers to specific user
-  // iat = issued at time 
+  // iat = issued at time
   return jwt.encode({ sub: user.id, iat: timestamp }, config.secret);
 }
 
@@ -35,7 +35,7 @@ exports.signup = function(req, res, next) {
       if (err) { return next(err); }
 
       // respond to req indicating user was created
-      res.json({ success: true });
+      res.json({ token: tokenForUser(user) });
     });
   });
 }

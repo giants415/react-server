@@ -1,4 +1,10 @@
+const jwt = require('jwt-simple');
+const config = require('../config');
 const User = require('../models/user');
+
+function toeknForUser(user) {
+  return jwt.encode({  }, config.secret);
+}
 
 exports.signup = function(req, res, next) {
   const email = req.body.email;

@@ -14,6 +14,15 @@ const jwtLogin = new JwtStrategy(jwtOptions, function(payload, done) {
   // if user does exist, call done
 
   // it is doesnt, call done w/o user object
+  User.findById(payload.sub, function(err, user) {
+    if (err) { return done(err, false); }
+
+    if (user) {
+      done(null, user);
+    } else {
+      done(null, false);
+    }
+  });
 });
 
 // Tell passport to use this strat

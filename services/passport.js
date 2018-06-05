@@ -15,7 +15,12 @@ const localLogin = new LocalStrategy(localOptions, function(email, password, don
     if (!user) { return done(false); }
 
     //compare PWs (request = user.password?)
-    
+    user.comparePassword(password, function(err, isMatch) {
+      if (err) { return done(err); }
+      if (!isMatch) { return done(null, false); }
+
+      return done(null, user);
+    })
   });
 });
 
